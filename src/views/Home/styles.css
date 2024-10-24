@@ -1,0 +1,14 @@
+.strokedButton {
+    position: relative;
+}
+
+.strokedButton::before {
+    position: absolute;
+    content: "";
+    width: 200px;
+    height: 61px;
+    top: 0;
+    right: 10px;
+    border: 1px solid #474306;
+    border-radius: 6px;
+}
