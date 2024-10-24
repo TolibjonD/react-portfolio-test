@@ -17,11 +17,10 @@ interface CardProps {
 
 export default function BlogCard({ blog }: { blog: CardProps }) {
     return (
-        <Card sx={{ width: { xs: "400px", md: '100%' }, height: { xs: "auto", md: '500px' }, backgroundColor: '#f3a78118' }}>
+        <Card sx={{ width: { xs: "auto", md: '400px' }, height: { xs: "auto", md: '500px' }, backgroundColor: '#f3a78118' }}>
             <CardActionArea>
                 <CardMedia
                     component="img"
-                    height="200px"
                     sx={{ height: { xs: 'auto', md: '220px' } }}
                     image={blog.imgSrc}
                     alt={blog.title.slice(0, 1).toUpperCase()}

@@ -5,7 +5,7 @@ import { Box } from '@mui/material'
 
 const BlogsView = () => {
     return (
-        <Box sx={{ p: { md: '100px' }, mt: "80px" }}>
+        <Box sx={{ p: { xs: '10px', md: '100px' }, mt: "80px" }}>
             <Heading label='Blogs' />
             <section id="#blog-se"></section>
             <Box sx={{ display: 'flex', justifyContent: { xs: 'center', md: 'space-between' }, mt: '50px', gap: '10px', flexWrap: { xs: 'wrap', md: 'nowrap' }, alignItems: 'center', flexDirection: { xs: 'column', md: 'row' } }}>
