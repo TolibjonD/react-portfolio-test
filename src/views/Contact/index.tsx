@@ -52,7 +52,7 @@ const Contact: React.FC = () => {
     };
 
     return (
-        <Box sx={{ p: { xs: '10px', md: '100px' }, mt: "80px", mb: "100px" }}>
+        <Box sx={{ p: { xs: '10px', md: '100px' }, mt: "80px", mb: "150px" }}>
             <Box sx={{
                 display: 'flex',
                 justifyContent: 'center',
