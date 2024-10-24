@@ -19,7 +19,7 @@ const LandingPage = () => {
                 <BlogsView />
             </section>
 
-            <section id="contact-se">
+            <section id="contact-se" style={{ marginBottom: '120px' }}>
                 <Contact />
             </section>
         </div>
