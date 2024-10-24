@@ -30,8 +30,8 @@ const GoToTop = () => {
         <Box
             sx={{
                 position: 'fixed',
-                bottom: '30px',
-                right: '30px',
+                bottom: '60px',
+                right: '10px',
                 display: isVisible ? 'block' : 'none',
                 transition: 'display 0.3s',
                 zIndex: 1000,
@@ -46,7 +46,7 @@ const GoToTop = () => {
                     },
                 }}
             >
-                <ArrowCircleUp variant="Broken" color='#ff5500' size={"25"} />
+                <ArrowCircleUp variant="Broken" color='#ff5500' size={"20"} />
             </IconButton>
         </Box>
     );
