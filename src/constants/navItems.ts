@@ -3,19 +3,19 @@ import { navItemMaker } from "@/utils/navItemMaker";
 
 export const NavItems: iNavItem[] = navItemMaker([
   {
-    url: "Home-page",
+    url: "#",
     label: "Home",
   },
   {
-    url: "About-page",
+    url: "#about-se",
     label: "About",
   },
   {
-    url: "work-page",
-    label: "Work",
+    url: "#blog-se",
+    label: "Blog",
   },
   {
-    url: "contact-section",
+    url: "#contact-se",
     label: "Contact",
   },
 ]);

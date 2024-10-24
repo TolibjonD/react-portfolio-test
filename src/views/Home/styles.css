@@ -12,3 +12,10 @@
     border: 1px solid #474306;
     border-radius: 6px;
 }
+
+@media (max-width: 768px) {
+    .strokedButton::before {
+        width: 150px; 
+        height: 40px; 
+    }
+}
