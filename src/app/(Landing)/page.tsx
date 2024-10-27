@@ -6,7 +6,7 @@ import React from 'react'
 
 const LandingPage = () => {
     return (
-        <div style={{ height: "300vh" }}>
+        <div style={{ minHeight: "300vh" }}>
             <section id="home">
                 <Home />
             </section>
@@ -19,7 +19,7 @@ const LandingPage = () => {
                 <BlogsView />
             </section>
 
-            <section id="contact-se" style={{ marginBottom: '120px' }}>
+            <section id="contact-se" style={{ marginBottom: '60px' }}>
                 <Contact />
             </section>
         </div>
