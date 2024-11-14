@@ -53,7 +53,7 @@ export async function POST(req: Request) {
     });
   } catch (error) {
     return NextResponse.json(
-      { message: "Failed to send message", error: error.message },
+      { message: "Failed to send message" },
       { status: 500 }
     );
   }

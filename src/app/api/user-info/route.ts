@@ -29,7 +29,7 @@ export async function GET(request: Request) {
   }
 
   // Get device information from the User-Agent header
-  const userAgent = request.headers.get("user-agent");
+  const userAgent = request.headers.get("user-agent") || ""; // Fallback to empty string if null
   const parser = new UAParser(userAgent);
   const deviceInfo = parser.getResult();
 
