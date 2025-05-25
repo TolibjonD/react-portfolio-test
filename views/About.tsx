@@ -5,7 +5,7 @@ import { Urbanist } from 'next/font/google'
 import Image from 'next/image';
 import React from 'react'
 
-const urbanist = Urbanist();
+const urbanist = Urbanist({ subsets: ['latin'] });
 
 export default function About() {
     return (
