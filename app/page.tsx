@@ -2,6 +2,7 @@ import { Button } from '@/components/Button'
 import { Section } from '@/components/Section'
 import About from '@/views/About'
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 export default function Home() {
@@ -18,14 +19,16 @@ export default function Home() {
             👋
           </span>
         </Button>
-        <button className='absolute right-20 bottom-10 animate-bounce'>
+        <Link className='absolute right-20 bottom-10 animate-bounce'
+          href={"#about"}
+        >
           <Image
             src={"/icons/mouse.png"}
             alt='dribble logo, dribble icon'
             width={40}
             height={60}
           />
-        </button>
+        </Link>
       </div>
       <About />
     </Section>
