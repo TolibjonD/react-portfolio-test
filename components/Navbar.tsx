@@ -3,7 +3,8 @@ import Image from 'next/image'
 import React from 'react'
 
 const inter = Inter({
-    weight: ['100', '300', '500', '600', '700', '800']
+    weight: ['100', '300', '500', '600', '700', '800'],
+    subsets: ['latin'],
 })
 
 export const Navbar = () => {
