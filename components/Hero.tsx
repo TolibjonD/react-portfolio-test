@@ -9,7 +9,7 @@ import BackgroundVideo from './BackgroundVideo';
 export const Hero = () => {
     return (
         <BackgroundVideo src="/video/bge.mp4" overlayColor="bg-black/60" className="min-h-screen flex items-center justify-center">
-            <div className="w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center gap-12 md:gap-20 z-10 py-10 pt-10 md:py-24 relative">
+            <div className="w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center  md:gap-20 z-10 py-10 pt-24 md:pt-10 md:py-24 relative">
                 {/* Visual centerpiece */}
                 <motion.div
                     initial={{ opacity: 0, scale: 0.96 }}
@@ -68,7 +68,7 @@ export const Hero = () => {
                         className="w-full flex justify-center md:justify-start"
                     >
                         <Button
-                            className='rounded-full border-none bg-rose-500 text-white px-10 py-4 text-lg font-bold shadow-none hover:bg-rose-600 transition-colors duration-200 backdrop-blur flex items-center gap-3'
+                            className='rounded-full border-none bg-rose-500 text-white px-6 py-2.5 text-base font-bold shadow-none hover:bg-rose-600 transition-colors duration-200 backdrop-blur flex items-center gap-3 sm:px-10 sm:py-4 sm:text-lg'
                             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                         >
                             <div className='flex items-center gap-3'>

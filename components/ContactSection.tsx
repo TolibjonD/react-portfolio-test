@@ -215,7 +215,7 @@ export const ContactSection = () => {
                     <div className="p-5 flex flex-col gap-3">
                         <Button
                             type="submit"
-                            className="w-full rounded-full border-2 border-rose-500 bg-rose-500/10 text-rose-200 py-5 text-xl font-bold shadow-lg hover:bg-rose-500/20 hover:text-white transition-colors duration-200 backdrop-blur flex items-center justify-center gap-2"
+                            className="w-full rounded-full border-2 border-rose-500 bg-rose-500/10 text-rose-200 px-5 py-3 text-base font-bold shadow-lg hover:bg-rose-500/20 hover:text-white transition-colors duration-200 backdrop-blur flex items-center justify-center gap-2 sm:px-8 sm:py-4 sm:text-lg"
                             disabled={formState.submitting || formState.succeeded}
                         >
                             <div className="flex items-center justify-center gap-2 w-full">
@@ -232,7 +232,7 @@ export const ContactSection = () => {
                 </form>
             </div>
             {/* FAQ Accordion */}
-            <div className="max-w-2xl mx-auto mt-12 mb-4">
+            <div className="max-w-2xl mx-auto mt-12 mb-4 px-4">
                 <h4 className="text-xl font-bold text-zinc-100 mb-4 text-center">Frequently Asked Questions</h4>
                 <div className="flex flex-col gap-3">
                     {faqs.map((faq, idx) => {

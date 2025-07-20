@@ -58,7 +58,7 @@ export default function ServicesSection() {
     return (
         <Section
             id="services"
-            blurredBg
+            blurredBg={false}
             title="My Services"
             subtitle={undefined}
             className=""
