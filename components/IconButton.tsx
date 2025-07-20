@@ -40,7 +40,7 @@ export const IconButton = ({ children, className, type, onClick, onMouseEnter, o
             onMouseLeave={onMouseLeave}
             disabled={disabled}
             type={type || 'button'}
-            className={`w-8 h-8 flex items-center justify-center border border-border overflow-hidden rounded-full cursor-pointer text-border relative ripple transition-colors hover:opacity-70 duration-150 ease-in ${className}`}>
+            className={`w-8 h-8 flex items-center justify-center border border-line overflow-hidden rounded-full cursor-pointer text-rose-400 relative ripple transition-colors hover:bg-rose-600/90 hover:text-white duration-150 ease-in shadow-md focus:outline-none focus:ring-2 focus:ring-rose-400 ${className}`}>
             <span className="relative z-10">{children}</span>
         </button>
     )

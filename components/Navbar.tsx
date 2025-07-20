@@ -1,26 +1,167 @@
-import { Inter } from 'next/font/google'
-import Image from 'next/image'
-import React from 'react'
+'use client';
+import { Inter } from 'next/font/google';
+import Image from 'next/image';
+import React, { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const inter = Inter({
     weight: ['100', '300', '500', '600', '700', '800'],
     subsets: ['latin'],
-})
+});
 
 export const Navbar = () => {
-    return (
-        <div className={`${inter.className} flex justify-between px-20 py-5 fixed bg-transparent backdrop-blur right-0 top-0 left-0 z-50`}>
-            <h1 className='text-2xl font-bold'>Saidy<span className='text-4xl text-rose-400'>.</span></h1>
-            <button
-                className='cursor-pointer'
-            >
-                <Image
-                    src={"/icons/burger.svg"}
-                    alt='dribble logo, dribble icon'
-                    width={22}
-                    height={18}
-                />
-            </button>
+    const [isVisible, setIsVisible] = useState(true);
+    const [lastScrollY, setLastScrollY] = useState(0);
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+            if (currentScrollY > lastScrollY && currentScrollY > 50) {
+                setIsVisible(false);
+            } else {
+                setIsVisible(true);
+            }
+            setLastScrollY(currentScrollY);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [lastScrollY]);
+
+    // Burger icon animation
+    const BurgerIcon = ({ open }: { open: boolean }) => (
+        <div className="w-8 h-8 flex flex-col justify-center items-center relative">
+            <span className={`block h-0.5 w-6 bg-rose-500 rounded transition-all duration-300 ${open ? 'rotate-45 translate-y-2' : ''}`}></span>
+            <span className={`block h-0.5 w-6 bg-rose-500 rounded transition-all duration-300 my-1 ${open ? 'opacity-0' : ''}`}></span>
+            <span className={`block h-0.5 w-6 bg-rose-500 rounded transition-all duration-300 ${open ? '-rotate-45 -translate-y-2' : ''}`}></span>
         </div>
-    )
-}
+    );
+
+    const navLinks = [
+        { href: '#about', label: 'About' },
+        { href: '#services', label: 'Services' },
+        { href: '#testimonials', label: 'Testimonials' },
+        { href: '#contact', label: 'Contact' },
+    ];
+
+    const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        e.preventDefault();
+        const id = href.replace('#', '');
+        const el = document.getElementById(id);
+        if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
+    return (
+        <motion.nav
+            initial={{ y: -64, opacity: 0 }}
+            animate={{ y: isVisible ? 0 : -64, opacity: isVisible ? 1 : 0 }}
+            transition={{ type: 'tween', duration: 0.32, ease: 'easeInOut' }}
+            className={
+                `${inter.className} fixed top-0 left-0 right-0 z-50
+                bg-zinc-950/80 backdrop-blur-xl shadow-xl
+                flex justify-between items-center
+                px-4 sm:px-10 lg:px-24 py-3 sm:py-4
+                transition-all duration-200`
+            }
+            style={{ borderBottom: isVisible ? '1.5px solid #27272a' : '1.5px solid transparent', boxShadow: isVisible ? undefined : 'none' }}
+        >
+            {/* Logo */}
+            <a href="#" className="flex items-center gap-2 group">
+                <span className="text-2xl sm:text-3xl font-extrabold tracking-wide text-rose-400 flex items-center">
+                    Saidy
+                </span>
+                <span className="w-3 h-3 rounded-full bg-gradient-to-tr from-rose-400 to-rose-600 shadow-lg group-hover:scale-110 transition-transform"></span>
+            </a>
+            {/* Desktop nav links */}
+            <div className="hidden md:flex gap-10 items-center">
+                {navLinks.map((link) => (
+                    <motion.a
+                        key={link.href}
+                        href={link.href}
+                        className="relative text-base font-medium text-zinc-200 px-2 py-1 transition-colors duration-150 focus:outline-none group"
+                        whileHover={{ color: '#fb7185' }} // rose-400
+                        transition={{ type: 'tween', duration: 0.18 }}
+                        onClick={e => handleNavClick(e, link.href)}
+                    >
+                        <span className="z-10 relative group-hover:text-rose-400 transition-colors duration-150">{link.label}</span>
+                        <motion.span
+                            layoutId="underline"
+                            className="absolute left-0 -bottom-0.5 w-full h-0.5 bg-rose-500 rounded origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-200"
+                            whileHover={{ scaleX: 1 }}
+                            initial={{ scaleX: 0 }}
+                        />
+                    </motion.a>
+                ))}
+            </div>
+            {/* Burger menu for mobile */}
+            {!menuOpen && (
+                <button
+                    className="md:hidden cursor-pointer z-50 p-2 rounded-full hover:bg-zinc-800/60 transition-colors"
+                    onClick={() => setMenuOpen(!menuOpen)}
+                    aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+                >
+                    <BurgerIcon open={menuOpen} />
+                </button>
+            )}
+            {/* Mobile menu with animation */}
+            <AnimatePresence>
+                {menuOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 24 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 24 }}
+                        transition={{ duration: 0.22, ease: 'easeOut' }}
+                        className="fixed inset-0 z-40 flex flex-col items-center justify-start md:hidden bg-zinc-950/95 backdrop-blur-xl"
+                    >
+                        {/* Centered logo at the top */}
+                        <div className="w-full flex justify-center items-center pt-8 pb-4">
+                            <a href="#" className="flex items-center gap-2 group">
+                                <span className="text-2xl font-extrabold tracking-wide text-rose-400 flex items-center">Saidy</span>
+                                <span className="w-3 h-3 rounded-full bg-gradient-to-tr from-rose-400 to-rose-600 shadow-lg group-hover:scale-110 transition-transform"></span>
+                            </a>
+                        </div>
+                        {/* Close button (only one) */}
+                        <button
+                            className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center rounded-full bg-zinc-800/80 hover:bg-rose-700/80 shadow-lg text-3xl text-rose-300 hover:text-rose-100 transition-colors focus:outline-none"
+                            onClick={() => setMenuOpen(false)}
+                            aria-label="Close menu"
+                        >
+                            &times;
+                        </button>
+                        {/* Nav links directly on the same solid background */}
+                        <motion.div
+                            initial="hidden"
+                            animate="visible"
+                            exit="hidden"
+                            variants={{
+                                hidden: { opacity: 0, y: 20 },
+                                visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.06, delayChildren: 0.1 } },
+                            }}
+                            className="w-full flex flex-col items-center mt-8 divide-y divide-zinc-800 bg-zinc-950/0"
+                        >
+                            {navLinks.map((link, idx) => (
+                                <motion.a
+                                    key={link.href}
+                                    href={link.href}
+                                    className="text-2xl font-bold tracking-wide text-zinc-200 w-full text-center py-4 transition-all duration-150 hover:text-rose-400 focus:outline-none focus:ring-2 focus:ring-rose-400"
+                                    style={{
+                                        textShadow: '0 2px 12px rgba(244,63,94,0.12), 0 1px 2px rgba(0,0,0,0.18)'
+                                    }}
+                                    onClick={e => { handleNavClick(e, link.href); setMenuOpen(false); }}
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: 10 }}
+                                    transition={{ duration: 0.18, delay: 0.1 + idx * 0.06 }}
+                                >
+                                    {link.label}
+                                </motion.a>
+                            ))}
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </motion.nav>
+    );
+};

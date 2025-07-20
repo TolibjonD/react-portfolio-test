@@ -13,7 +13,10 @@ type ButtonProps = {
 
 export const Button = ({ children, className, type, onClick, onMouseEnter, onMouseLeave, disabled }: ButtonProps) => {
     const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-        e.preventDefault();
+        // Only prevent default if not a submit button
+        if (type !== 'submit') {
+            e.preventDefault();
+        }
         if (onClick) {
             onClick(e);
         }
@@ -40,7 +43,7 @@ export const Button = ({ children, className, type, onClick, onMouseEnter, onMou
             onMouseLeave={onMouseLeave}
             disabled={disabled}
             type={type || 'button'}
-            className={`${className} px-4 overflow-hidden py-1.5 cursor-pointer text-border relative ripple transition-colors hover:opacity-85 duration-150 ease-in `}>
+            className={`px-4 overflow-hidden py-1.5 cursor-pointer text-rose-400  relative ripple transition-colors hover:bg-rose-600/90 hover:text-white duration-150 ease-in rounded-full font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-rose-400 ${className}`}>
             <span className="relative z-10">{children}</span>
         </button>
     )

@@ -12,7 +12,7 @@ type socilaLinkType = {
 
 const socialLinks: socilaLinkType[] = [
     {
-        icon: <span className='font-extrabold text-sm'>in</span>,
+        icon: <span className='font-extrabold text-sm text-my-text'>in</span>,
         link: 'https://www.linkedin.com/in/tolibjon/'
     },
     {
@@ -58,7 +58,7 @@ export const SocialLinks = () => {
     const handleClick = (url: string) => router.replace(url);
 
     return (
-        <div className='flex items-center gap-5'>
+        <div className='flex items-center gap-3 sm:gap-5 flex-wrap'>
             {socialLinks.map((link, idx) => (
                 <IconButton
                     key={idx}

@@ -1,36 +1,32 @@
 import { Button } from '@/components/Button'
 import { Section } from '@/components/Section'
 import About from '@/views/About'
+import ServicesSection from '@/components/ServicesSection'
+import Testimonials from '@/components/Testimonials'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import { Hero } from '@/components/Hero';
+import { generateSEO } from '@/utils/seo';
+import { ContactSection } from '@/components/ContactSection';
+
+export const metadata = generateSEO({
+  title: 'Tolibjon Saidkodirov | Portfolio',
+  description: 'Tolibjon Saidkodirov is a modern web developer specializing in elegant, rose-themed, performant, and accessible digital products. Explore his portfolio, skills, and projects.',
+  url: 'https://saidkodirov.uz',
+  image: '/images/me.jpg',
+  keywords: 'Tolibjon, Saidkodirov, portfolio, web developer, react, nextjs, frontend, UI, UX, rose, modern, elegant',
+  type: 'website',
+});
 
 export default function Home() {
   return (
-    <Section>
-      <div className='w-full h-screen flex items-center justify-center flex-col relative'>
-        <h1 className='text-white text-[75px]'><span className='text-text-gray'>Designing with</span> Purpose,</h1>
-        <h1 className='text-white text-[75px]'><span className='text-text-gray'>Building with</span> Webflow.</h1>
-        <Button
-          className='mt-5 rounded-full border border-border'
-        >
-          <span className='flex items-center justify-center gap-2'>
-            <span> Say hi</span>
-            👋
-          </span>
-        </Button>
-        <Link className='absolute right-20 bottom-10 animate-bounce'
-          href={"#about"}
-        >
-          <Image
-            src={"/icons/mouse.png"}
-            alt='dribble logo, dribble icon'
-            width={40}
-            height={60}
-          />
-        </Link>
-      </div>
+    <>
+      <Hero />
       <About />
-    </Section>
+      <ServicesSection />
+      <Testimonials />
+      <ContactSection />
+    </>
   )
 }
