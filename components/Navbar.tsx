@@ -113,22 +113,25 @@ export const Navbar = () => {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 24 }}
                         transition={{ duration: 0.22, ease: 'easeOut' }}
-                        className="fixed inset-0 z-40 flex flex-col items-center justify-start md:hidden bg-zinc-950/95 backdrop-blur-xl"
+                        className="fixed inset-0 z-40 flex flex-col items-center justify-center md:hidden px-4 py-8"
                     >
                         {/* Centered logo at the top */}
-                        <div className="w-full flex justify-center items-center pt-8 pb-4">
-                            <a href="#" className="flex items-center gap-2 group">
-                                <span className="text-2xl font-extrabold tracking-wide text-rose-400 flex items-center">Saidy</span>
-                                <span className="w-3 h-3 rounded-full bg-gradient-to-tr from-rose-400 to-rose-600 shadow-lg group-hover:scale-110 transition-transform"></span>
-                            </a>
+                        <div className="w-full flex justify-center items-center mb-8">
+                            <div className="flex flex-col items-center gap-2">
+                                <a href="#" className="flex items-center gap-2 group">
+                                    <span className="text-3xl font-extrabold tracking-wide text-rose-400 flex items-center">Saidy</span>
+                                    <span className="w-3 h-3 rounded-full bg-gradient-to-tr from-rose-400 to-rose-600 shadow-lg group-hover:scale-110 transition-transform"></span>
+                                </a>
+                            </div>
                         </div>
                         {/* Close button (only one) */}
                         <button
-                            className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center rounded-full bg-zinc-800/80 hover:bg-rose-700/80 shadow-lg text-3xl text-rose-300 hover:text-rose-100 transition-colors focus:outline-none"
+                            className="absolute top-3 right-5 w-9 h-9 flex items-center justify-center rounded-full bg-zinc-800/90 hover:bg-rose-700/80 shadow text-2xl text-rose-300 hover:text-white transition-colors focus:outline-none border border-zinc-700"
                             onClick={() => setMenuOpen(false)}
                             aria-label="Close menu"
                         >
-                            &times;
+                            <span className="sr-only">Close menu</span>
+                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6l10 10M16 6l-10 10" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" /></svg>
                         </button>
                         {/* Nav links directly on the same solid background */}
                         <motion.div
@@ -139,13 +142,13 @@ export const Navbar = () => {
                                 hidden: { opacity: 0, y: 20 },
                                 visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.06, delayChildren: 0.1 } },
                             }}
-                            className="w-full flex flex-col items-center mt-8 divide-y divide-zinc-800 bg-zinc-950/0"
+                            className="w-full rounded-2xl bg-zinc-950 shadow-2xl flex flex-col items-center py-8 px-4 gap-2 border border-zinc-800"
                         >
                             {navLinks.map((link, idx) => (
                                 <motion.a
                                     key={link.href}
                                     href={link.href}
-                                    className="text-2xl font-bold tracking-wide text-zinc-200 w-full text-center py-4 transition-all duration-150 hover:text-rose-400 focus:outline-none focus:ring-2 focus:ring-rose-400"
+                                    className="text-xl font-bold tracking-wide text-zinc-200 w-full text-center py-4 rounded-lg transition-all duration-150 hover:text-rose-400 hover:bg-zinc-900/60 focus:outline-none focus:ring-2 focus:ring-rose-400"
                                     style={{
                                         textShadow: '0 2px 12px rgba(244,63,94,0.12), 0 1px 2px rgba(0,0,0,0.18)'
                                     }}

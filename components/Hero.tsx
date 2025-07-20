@@ -9,7 +9,7 @@ import BackgroundVideo from './BackgroundVideo';
 export const Hero = () => {
     return (
         <BackgroundVideo src="/video/bge.mp4" overlayColor="bg-black/60" className="min-h-screen flex items-center justify-center">
-            <div className="w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center gap-12 md:gap-20 z-10 py-10 md:py-24 relative">
+            <div className="w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center gap-12 md:gap-20 z-10 py-10 pt-10 md:py-24 relative">
                 {/* Visual centerpiece */}
                 <motion.div
                     initial={{ opacity: 0, scale: 0.96 }}
