@@ -12,6 +12,7 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Saidkodirov Tolibjon",
   description: "Portfolio project of Tolibjon Saidkodirov",
+  icons: ['/icon.ico']
 };
 
 export default function RootLayout({
