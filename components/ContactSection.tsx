@@ -133,7 +133,7 @@ export const ContactSection = () => {
                     <div className="p-5 border-b border-zinc-800 flex flex-col gap-3 items-start">
                         <div className="flex items-center gap-3 text-zinc-200 text-lg font-semibold">
                             <Call size={24} variant="Bold" color="#f43f5e" />
-                            <span>+998 99 123 45 67</span>
+                            <span>+998 (94) 274 2007</span>
                         </div>
                         <div className="flex items-center gap-3 text-zinc-200 text-lg font-semibold">
                             <Sms size={24} variant="Bold" color="#f43f5e" />
