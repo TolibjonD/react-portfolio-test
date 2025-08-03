@@ -69,10 +69,13 @@ export const Navbar = () => {
         >
             {/* Logo */}
             <a href="#" className="flex items-center gap-2 group">
-                <span className="text-2xl sm:text-3xl font-extrabold tracking-wide text-rose-400 flex items-center">
-                    Saidy
+                <span className="text-2xl sm:text-3xl font-extrabold tracking-wide text-rose-500 flex items-center relative overflow-hidden animate-pulse">
+                    <span className="relative">
+                        Saidkodirov
+                        <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -skew-x-12 animate-shine"></span>
+                    </span>
                 </span>
-                <span className="w-3 h-3 rounded-full bg-gradient-to-tr from-rose-400 to-rose-600 shadow-lg group-hover:scale-110 transition-transform"></span>
+                <span className="w-3 h-3 rounded-full bg-gradient-to-tr from-rose-400 to-rose-600 shadow-lg group-hover:scale-110 transition-transform animate-pulse"></span>
             </a>
             {/* Desktop nav links */}
             <div className="hidden md:flex gap-10 items-center">
@@ -119,8 +122,13 @@ export const Navbar = () => {
                         <div className="w-full flex justify-center items-center mb-8">
                             <div className="flex flex-col items-center gap-2">
                                 <a href="#" className="flex items-center gap-2 group">
-                                    <span className="text-3xl font-extrabold tracking-wide text-rose-400 flex items-center">Saidy</span>
-                                    <span className="w-3 h-3 rounded-full bg-gradient-to-tr from-rose-400 to-rose-600 shadow-lg group-hover:scale-110 transition-transform"></span>
+                                    <span className="text-3xl font-extrabold tracking-wide text-rose-400 flex items-center relative overflow-hidden animate-pulse">
+                                        <span className="relative">
+                                            Saidy
+                                            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -skew-x-12 animate-shine"></span>
+                                        </span>
+                                    </span>
+                                    <span className="w-3 h-3 rounded-full bg-gradient-to-tr from-rose-400 to-rose-600 shadow-lg group-hover:scale-110 transition-transform animate-pulse"></span>
                                 </a>
                             </div>
                         </div>

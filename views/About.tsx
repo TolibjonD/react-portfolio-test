@@ -84,7 +84,7 @@ export default function About() {
                     <div className="relative w-28 h-28 sm:w-32 sm:h-32 flex items-center justify-center mx-auto">
                         <div className="absolute inset-0 rounded-full bg-rose-500/10 blur-2xl" />
                         <img
-                            src="/images/me.jpg"
+                            src="/images/hero.jpg"
                             alt="Tolibjon Saidkodirov profile photo"
                             width={128}
                             height={128}

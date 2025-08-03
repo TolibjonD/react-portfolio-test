@@ -2,6 +2,7 @@
 import React from 'react';
 import { Section } from './Section';
 import { Brush, Code, MonitorMobbile, MessageQuestion, CloudAdd, ShieldTick, Chart, People } from 'iconsax-react';
+import { motion } from 'framer-motion';
 
 const services = [
     {
@@ -78,8 +79,7 @@ export default function ServicesSection() {
                 {services.map((service, idx) => (
                     <div
                         key={service.title}
-                        className="rounded-2xl p-8 flex flex-col items-center text-center shadow-xl border border-zinc-800 bg-zinc-900/60 backdrop-blur-lg transition-transform hover:scale-105 hover:shadow-2xl duration-200"
-                        style={{ animation: `fadeInUp 0.7s ${0.1 + idx * 0.1}s both` }}
+                        className="rounded-2xl p-8 flex flex-col items-center text-center shadow-xl border border-zinc-800 bg-zinc-900/60 backdrop-blur-lg group"
                     >
                         <div className="mb-5 rounded-full flex items-center justify-center shadow bg-zinc-900 w-14 h-14 border border-zinc-700">
                             {service.icon}
@@ -92,20 +92,8 @@ export default function ServicesSection() {
                 ))}
             </div>
             <div className="text-zinc-400 text-base sm:text-lg font-medium text-center max-w-2xl mx-auto mt-8 mb-2">
-                Ready to elevate your next project? Let’s connect and make it happen.
+                Ready to elevate your next project? Let's connect and make it happen.
             </div>
-            <style jsx>{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(32px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
         </Section>
     );
 } 

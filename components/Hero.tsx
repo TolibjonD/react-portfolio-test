@@ -17,10 +17,111 @@ export const Hero = () => {
                     transition={{ delay: 0.15, duration: 0.7, type: 'spring' }}
                     className="relative flex-shrink-0 mb-10 md:mb-0"
                 >
+                    {/* Lightning effects */}
+                    <motion.div
+                        className="absolute inset-0 rounded-full"
+                        animate={{
+                            boxShadow: [
+                                "0 0 20px rgba(244, 63, 94, 0.3)",
+                                "0 0 40px rgba(244, 63, 94, 0.6)",
+                                "0 0 60px rgba(244, 63, 94, 0.8)",
+                                "0 0 40px rgba(244, 63, 94, 0.6)",
+                                "0 0 20px rgba(244, 63, 94, 0.3)",
+                                "0 0 10px rgba(244, 63, 94, 0.1)",
+                            ]
+                        }}
+                        transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            repeatDelay: 3,
+                            ease: "easeInOut"
+                        }}
+                    />
+
+                    {/* Primary lightning bolt */}
+                    <motion.div
+                        className="absolute -top-4 -right-4 w-8 h-12 opacity-0"
+                        animate={{
+                            opacity: [0, 1, 0],
+                            scale: [0.8, 1.2, 0.8],
+                            rotate: [0, 5, -5, 0]
+                        }}
+                        transition={{
+                            duration: 0.8,
+                            repeat: Infinity,
+                            repeatDelay: 4,
+                            ease: "easeInOut"
+                        }}
+                    >
+                        <svg viewBox="0 0 24 24" fill="none" className="w-full h-full">
+                            <path
+                                d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"
+                                fill="url(#lightning-gradient)"
+                                className="drop-shadow-lg"
+                            />
+                            <defs>
+                                <linearGradient id="lightning-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stopColor="#fbbf24" />
+                                    <stop offset="50%" stopColor="#f59e0b" />
+                                    <stop offset="100%" stopColor="#d97706" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </motion.div>
+
+                    {/* Secondary lightning bolt */}
+                    <motion.div
+                        className="absolute -bottom-2 -left-2 w-6 h-10 opacity-0"
+                        animate={{
+                            opacity: [0, 1, 0],
+                            scale: [0.6, 1.1, 0.6],
+                            rotate: [0, -3, 3, 0]
+                        }}
+                        transition={{
+                            duration: 0.6,
+                            repeat: Infinity,
+                            repeatDelay: 5,
+                            ease: "easeInOut"
+                        }}
+                    >
+                        <svg viewBox="0 0 24 24" fill="none" className="w-full h-full">
+                            <path
+                                d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"
+                                fill="url(#lightning-gradient-2)"
+                                className="drop-shadow-lg"
+                            />
+                            <defs>
+                                <linearGradient id="lightning-gradient-2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stopColor="#f472b6" />
+                                    <stop offset="50%" stopColor="#ec4899" />
+                                    <stop offset="100%" stopColor="#db2777" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </motion.div>
+
+                    {/* Electric aura */}
+                    <motion.div
+                        className="absolute inset-0 rounded-full"
+                        animate={{
+                            background: [
+                                "radial-gradient(circle, rgba(244, 63, 94, 0.1) 0%, transparent 70%)",
+                                "radial-gradient(circle, rgba(244, 63, 94, 0.3) 0%, transparent 70%)",
+                                "radial-gradient(circle, rgba(244, 63, 94, 0.1) 0%, transparent 70%)",
+                            ]
+                        }}
+                        transition={{
+                            duration: 1.5,
+                            repeat: Infinity,
+                            repeatDelay: 2,
+                            ease: "easeInOut"
+                        }}
+                    />
+
                     <span className="absolute inset-0 rounded-full bg-rose-500/30 blur-2xl scale-110" />
                     <div className="relative w-48 h-48 sm:w-56 sm:h-56 rounded-full overflow-hidden flex items-center justify-center bg-gradient-to-br from-zinc-900/80 via-zinc-800/60 to-rose-500/10 shadow-xl backdrop-blur-xl">
                         <Image
-                            src="/images/me.jpg"
+                            src="/images/hero.jpg"
                             alt="Tolibjon Saidkodirov profile photo"
                             width={220}
                             height={220}
