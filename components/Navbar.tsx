@@ -68,14 +68,17 @@ export const Navbar = () => {
             style={{ borderBottom: isVisible ? '1.5px solid #27272a' : '1.5px solid transparent', boxShadow: isVisible ? undefined : 'none' }}
         >
             {/* Logo */}
-            <a href="#" className="flex items-center gap-2 group">
-                <span className="text-2xl sm:text-3xl font-extrabold tracking-wide text-rose-500 flex items-center relative overflow-hidden animate-pulse">
-                    <span className="relative">
+            <a href="#" className="flex items-center gap-3 group">
+                <div className="relative">
+                    <span className="text-2xl sm:text-3xl font-extrabold tracking-wide bg-gradient-to-r from-rose-400 via-rose-500 to-rose-600 bg-clip-text text-transparent group-hover:from-rose-300 group-hover:via-rose-400 group-hover:to-rose-500 transition-all duration-300">
                         Saidkodirov
-                        <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -skew-x-12 animate-shine"></span>
                     </span>
-                </span>
-                <span className="w-3 h-3 rounded-full bg-gradient-to-tr from-rose-400 to-rose-600 shadow-lg group-hover:scale-110 transition-transform animate-pulse"></span>
+                    <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-rose-400 to-rose-600 group-hover:w-full transition-all duration-500 ease-out"></div>
+                </div>
+                <div className="relative">
+                    <div className="w-3 h-3 rounded-full bg-gradient-to-tr from-rose-400 to-rose-600 shadow-lg group-hover:shadow-rose-500/50 transition-all duration-300"></div>
+                    <div className="absolute inset-0 w-3 h-3 rounded-full bg-gradient-to-tr from-rose-400 to-rose-600 opacity-0 group-hover:opacity-20 group-hover:scale-150 transition-all duration-300"></div>
+                </div>
             </a>
             {/* Desktop nav links */}
             <div className="hidden md:flex gap-10 items-center">
@@ -121,14 +124,17 @@ export const Navbar = () => {
                         {/* Centered logo at the top */}
                         <div className="w-full flex justify-center items-center mb-8">
                             <div className="flex flex-col items-center gap-2">
-                                <a href="#" className="flex items-center gap-2 group">
-                                    <span className="text-3xl font-extrabold tracking-wide text-rose-400 flex items-center relative overflow-hidden animate-pulse">
-                                        <span className="relative">
+                                <a href="#" className="flex items-center gap-3 group">
+                                    <div className="relative">
+                                        <span className="text-3xl font-extrabold tracking-wide bg-gradient-to-r from-rose-400 via-rose-500 to-rose-600 bg-clip-text text-transparent group-hover:from-rose-300 group-hover:via-rose-400 group-hover:to-rose-500 transition-all duration-300">
                                             Saidy
-                                            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -skew-x-12 animate-shine"></span>
                                         </span>
-                                    </span>
-                                    <span className="w-3 h-3 rounded-full bg-gradient-to-tr from-rose-400 to-rose-600 shadow-lg group-hover:scale-110 transition-transform animate-pulse"></span>
+                                        <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-rose-400 to-rose-600 group-hover:w-full transition-all duration-500 ease-out"></div>
+                                    </div>
+                                    <div className="relative">
+                                        <div className="w-3 h-3 rounded-full bg-gradient-to-tr from-rose-400 to-rose-600 shadow-lg group-hover:shadow-rose-500/50 transition-all duration-300"></div>
+                                        <div className="absolute inset-0 w-3 h-3 rounded-full bg-gradient-to-tr from-rose-400 to-rose-600 opacity-0 group-hover:opacity-20 group-hover:scale-150 transition-all duration-300"></div>
+                                    </div>
                                 </a>
                             </div>
                         </div>
