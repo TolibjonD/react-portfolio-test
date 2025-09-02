@@ -149,8 +149,8 @@ export function generateSEO({
             },
         },
         verification: {
-            google: 'your-google-verification-code', // Add your Google Search Console verification code
-            yandex: 'your-yandex-verification-code', // Add your Yandex verification code if targeting Russian market
+            google: 'google-site-verification=T0Xe-jiLOg9fkGVFhDRj7ELLMp3rnNFTXbRmnBIy6UE', // Add your Google Search Console verification code
+            yandex: 'b041e53a37694729', // Add your Yandex verification code if targeting Russian market
         }
     };
 }
