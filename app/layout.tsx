@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
 import { MyProvider } from "@/components/MyProvider";
-
+import { generateStructuredData, generateBreadcrumbData } from "@/utils/seo";
 
 const poppins = Poppins({
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
@@ -48,6 +48,11 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://saidkodirov.uz'),
   alternates: {
     canonical: '/',
+    languages: {
+      'en': '/?lang=en',
+      'uz': '/?lang=uz',
+      'ru': '/?lang=ru',
+    }
   },
   openGraph: {
     title: "Tolibjon Saidkodirov - Professional Web Developer & UI/UX Designer",
@@ -82,7 +87,15 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  icons: ['/icon.ico']
+  icons: ['/icon.ico'],
+  // Enhanced SEO properties
+  category: 'technology',
+  classification: 'Web Development Services',
+  referrer: 'origin-when-cross-origin',
+  verification: {
+    google: 'google-site-verification=T0Xe-jiLOg9fkGVFhDRj7ELLMp3rnNFTXbRmnBIy6UE', // Add your Google Search Console verification code
+    yandex: 'b041e53a37694729', // Add your Yandex verification code if targeting Russian market
+  }
 };
 
 export default function RootLayout({
@@ -90,8 +103,46 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const structuredData = generateStructuredData();
+  const breadcrumbData = generateBreadcrumbData();
+
   return (
     <html lang="en">
+      <head>
+        {/* Structured Data for better search engine understanding */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(breadcrumbData),
+          }}
+        />
+
+        {/* Additional meta tags for better SEO */}
+        <meta name="geo.region" content="UZ" />
+        <meta name="geo.placename" content="Tashkent" />
+        <meta name="geo.position" content="41.2995;69.2401" />
+        <meta name="ICBM" content="41.2995, 69.2401" />
+
+        {/* Language alternates for multilingual SEO */}
+        <link rel="alternate" hrefLang="en" href="https://saidkodirov.uz/?lang=en" />
+        <link rel="alternate" hrefLang="uz" href="https://saidkodirov.uz/?lang=uz" />
+        <link rel="alternate" hrefLang="ru" href="https://saidkodirov.uz/?lang=ru" />
+        <link rel="alternate" hrefLang="x-default" href="https://saidkodirov.uz" />
+
+        {/* Preconnect to external domains for performance */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
+        {/* DNS prefetch for better performance */}
+        <link rel="dns-prefetch" href="//www.google-analytics.com" />
+        <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+      </head>
       <body
         className={`${poppins.className} antialiased`}
       >
