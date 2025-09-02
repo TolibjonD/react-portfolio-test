@@ -89,7 +89,7 @@ export function generateSEO({
     title = 'Tolibjon Saidkodirov - Professional Web Developer & UI/UX Designer | Website Creation Services',
     description = 'Professional web developer and UI/UX designer offering fast, high-quality website creation services. Specializing in React, Next.js, and modern web technologies. Based in Tashkent, Uzbekistan. Professional web development, website design, and digital solutions.',
     url = 'https://saidkodirov.uz',
-    image = '/images/heyUser.jpg',
+    image = '/images/me.jpg',
     keywords = '',
     type = 'website',
     locale = 'en',

@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     siteName: 'Tolibjon Saidkodirov Portfolio',
     images: [
       {
-        url: '/images/heyUser.jpg',
+        url: '/images/me.jpg',
         width: 1200,
         height: 630,
         alt: 'Tolibjon Saidkodirov - Professional Web Developer',
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Tolibjon Saidkodirov - Professional Web Developer & UI/UX Designer",
     description: "Professional web developer and UI/UX designer offering fast, high-quality website creation services.",
-    images: ['/images/heyUser.jpg'],
+    images: ['/images/me.jpg'],
   },
   robots: {
     index: true,
