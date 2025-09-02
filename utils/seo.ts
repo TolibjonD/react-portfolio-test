@@ -149,7 +149,7 @@ export function generateSEO({
             },
         },
         verification: {
-            google: 'google-site-verification=T0Xe-jiLOg9fkGVFhDRj7ELLMp3rnNFTXbRmnBIy6UE', // Add your Google Search Console verification code
+            google: 'T0Xe-jiLOg9fkGVFhDRj7ELLMp3rnNFTXbRmnBIy6UE', // Add your Google Search Console verification code
             yandex: 'b041e53a37694729', // Add your Yandex verification code if targeting Russian market
         }
     };
