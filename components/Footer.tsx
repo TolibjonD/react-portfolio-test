@@ -5,9 +5,12 @@ import Image from 'next/image';
 import { Instagram } from 'iconsax-react';
 import { Button } from './Button';
 import { SocialLinks } from './SocialLinks';
+import { useVisitorCount } from '../hooks/useVisitorCount';
 
 export const Footer = () => {
     const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+    const { visitorCount, isLoading } = useVisitorCount();
+
     return (
         <footer className=''>
             <div className='px-4 sm:px-8 md:px-20 py-5 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-0'>
@@ -46,6 +49,18 @@ export const Footer = () => {
             <div className='flex flex-col sm:flex-row items-center justify-between px-4 sm:px-8 md:px-20 py-5 border-t border-border gap-4 sm:gap-0'>
                 <p className='text-border text-sm sm:text-base text-center sm:text-left'>© <span id="year">{currentYear}</span> All rights reserved.</p>
                 <SocialLinks />
+            </div>
+            {/* Visitor Count Section */}
+            <div className='border-t border-border px-4 sm:px-8 md:px-20 py-3'>
+                <div className='flex justify-center'>
+                    <p className='text-border text-xs text-center'>
+                        {isLoading ? (
+                            'Loading visitor count...'
+                        ) : (
+                            `👥 ${visitorCount.toLocaleString()} visitors have explored this portfolio`
+                        )}
+                    </p>
+                </div>
             </div>
         </footer>
     )
